@@ -42,18 +42,19 @@
             line-height: 1.6;
         }
 
-        .hero-content button {
+        /* Styled link as button */
+        .hero-content .btn {
+            display: inline-block;
             padding: 12px 25px;
             font-size: 16px;
-            border: none;
             border-radius: 8px;
             background-color: #ff9800;
             color: white;
-            cursor: pointer;
+            text-decoration: none;
             transition: 0.3s ease;
         }
 
-        .hero-content button:hover {
+        .hero-content .btn:hover {
             background-color: #e68900;
         }
 
@@ -92,14 +93,17 @@
 <body>
 
 <section class="hero">
-    <div class="hero-content"
+    <div class="hero-content">
         <h1>Build Your Future with Tech</h1>
         <p>Learn modern web development and create responsive websites using HTML, CSS, and Flexbox. Start your journey today!</p>
-        <button>Get Started</button>
+
+        <!-- LinkedIn Button -->
+        <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="btn">
+            Get Started
+        </a>
     </div>
 
     <div class="hero-image">
-        <!-- Random image generated each refresh -->
         <img src="https://picsum.photos/400/400?random=1" alt="Random Hero Image">
     </div>
 </section>
