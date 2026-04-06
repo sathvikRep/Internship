@@ -1,0 +1,35 @@
+## Objective
+
+To understand how modern websites are built using reusable UI components by breaking down a popular website into smaller parts and analyzing its structure.
+
+## Selected Website
+
+Example: Amazon Homepage (you can replace with any site like Flipkart, Instagram)
+
+## Identified Components
+Header / Navbar
+Logo (Amazon logo)
+Search bar
+Location selector
+Account & Lists
+Cart icon
+Main Banner / Hero Section
+Large promotional images
+Sliding carousel (offers, deals)
+Category Section
+Boxes showing categories like electronics, fashion, home
+Each box contains images + links
+Product Cards
+Product image
+Title
+Price
+Ratings
+“Add to Cart” button
+Deals Section
+Limited-time offers
+Discount highlights
+Countdown timers (sometimes)
+Footer
+Links (About, Contact, Help)
+Social media links
+Copyright info
