@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weather Dashboard</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 12px;
+      width: 320px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    input {
+      width: 70%;
+      padding: 8px;
+      border-radius: 6px;
+      border: none;
+      margin-right: 5px;
+    }
+
+    button {
+      padding: 8px 10px;
+      border: none;
+      border-radius: 6px;
+      background: #3b82f6;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #2563eb;
+    }
+
+    .loading {
+      margin-top: 10px;
+      color: #facc15;
+    }
+
+    .error {
+      color: #ef4444;
+      margin-top: 10px;
+    }
+
+    .weather {
+      margin-top: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>Weather Dashboard</h2>
+
+  <input type="text" id="city" placeholder="Enter city">
+  <button onclick="getWeather()">Search</button>
+
+  <div id="loading" class="loading"></div>
+  <div id="error" class="error"></div>
+  <div id="weather" class="weather"></div>
+</div>
+
+<script>
+async function getWeather() {
+  const city = document.getElementById("city").value;
+  const apiKey = "API_KEY"; // Replace with the OpenWeatherMap API key
+
+  const loading = document.getElementById("loading");
+  const error = document.getElementById("error");
+  const weatherDiv = document.getElementById("weather");
+
+  // Reset UI
+  loading.innerText = "Loading...";
+  error.innerText = "";
+  weatherDiv.innerHTML = "";
+
+  try {
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
+    );
+
+    if (!response.ok) {
+      throw new Error("City not found!");
+    }
+
+    const data = await response.json();
+
+    // Display data
+    weatherDiv.innerHTML = `
+      <h3>${data.name}</h3>
+      <p>🌡 Temperature: ${data.main.temp} °C</p>
+      <p>🌥 Condition: ${data.weather[0].main}</p>
+      <p>💧 Humidity: ${data.main.humidity}%</p>
+      <p>🌬 Wind: ${data.wind.speed} m/s</p>
+    `;
+
+  } catch (err) {
+    error.innerText = err.message;
+  } finally {
+    loading.innerText = "";
+  }
+}
+</script>
+
+</body>
+</html>
