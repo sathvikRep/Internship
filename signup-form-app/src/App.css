@@ -1,0 +1,27 @@
+.container {
+  text-align: center;
+  margin-top: 50px;
+  font-family: Arial;
+}
+
+input {
+  display: block;
+  margin: 10px auto;
+  padding: 8px;
+  width: 250px;
+}
+
+button {
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+}
+
+.success {
+  color: green;
+  font-size: 16px;
+}
